@@ -1,9 +1,0 @@
-Hi! ashi here! it's been a long time hasn't it?
-I'm sorry for how long this took. I hope this can be enough!
-A lot of the development data was lost due to mismanagement.
-
-Not everything is present, not all features work 100% of the time.
-But I aimed to fix as many bugs as I could get within a reasonable
-amount of time. I hope this is better than nothing.
-
-- ashi

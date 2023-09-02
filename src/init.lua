@@ -1,38 +1,78 @@
-dofile("Definitions/config.lua")
+--[[
+	Reminiscences init script
 
-dofile("Definitions/skincolors.lua")
-dofile("Definitions/taunts.lua")
+	this file is mostly self explanatory and shouldn't
+	be too difficult to understand.
 
-dofile("AmyRE/hammerrush.lua")
-dofile("AmyRE/chargejump.lua")
-dofile("AmyRE/hammerspin.lua")
+	Created by Ashi
+]]
 
-dofile("MightyRE/walljump.lua")
-dofile("MightyRE/hardshell.lua")
-dofile("MightyRE/stompdash.lua")
+local folder = ""
+local function df(filename)
+	dofile(folder..filename..".lua")
+end
 
-dofile("ShadowRE/skating.lua")
-dofile("ShadowRE/superfloat.lua")
-dofile("ShadowRE/shadowhud.lua")
-dofile("ShadowRE/chaosenergy.lua")
-dofile("ShadowRE/chaosspear.lua")
+-------------------------------
+--        Init Start         --
+-------------------------------
 
-dofile("Sonic Tails RE/saeffects.lua")
-dofile("Sonic Tails RE/partnercode.lua")
+-- check for the version global
+if (rawget(_G, "REMIN_VERSION") != nil) then
+	-- we have a conflict. cancel load and inform the user.
+	error("[REMIN] Another version of Reminiscences is already loaded!")
+	return
+end
 
-dofile("Sonic Tails RE/SonicRE/bounce.lua")
-dofile("Sonic Tails RE/SonicRE/spindrift.lua")
-dofile("Sonic Tails RE/SonicRE/superfloat.lua")
+-- establish the version global
+rawset(_G, "REMIN_VERSION", 200)
 
-dofile("Sonic Tails RE/TailsRE/tailswipe.lua")
-dofile("Sonic Tails RE/TailsRE/sa1flight.lua")
-dofile("Sonic Tails RE/TailsRE/superflickies.lua")
+-- Load lua files
 
-dofile("SSNShadow/lightdash.lua")
-dofile("SSNShadow/skatingsoc.lua")
-dofile("SSNShadow/floating.lua")
-dofile("SSNShadow/dblthok.lua")
+df("config")
 
-dofile("blaze.lua")
-dofile("sally.lua")
-dofile("ssnamy.lua")
+folder = "Definitions/"
+	df("skincolors")
+	df("taunts")
+
+folder = "Characters/"
+	-- TODO: we might want to separate some of these up
+	df("blaze")
+	df("ssnamy")
+	df("sally")
+
+folder = "Characters/AmyRE/"
+	df("hammer_rush")
+	df("charge_jump")
+	df("hammer_spin")
+
+folder = "Characters/MightyRE/"
+	df("walljump")
+	df("hard_shell")
+	df("stomp_dash")
+
+folder = "Characters/ShadowRE/"
+	df("skating")
+	df("super_float")
+	df("hud")
+	df("chaos_energy")
+	df("chaos_spear")
+
+folder = "Characters/SSNShadow/"
+	df("light_dash")
+	df("skating")
+	df("floating")
+	df("double_thok")
+
+folder = "Characters/SonicRE/"
+	df("bounce")
+	df("spin_drift")
+	df("super_float")
+
+folder = "Characters/TailsRE/"
+	df("tail_swipe")
+	df("sa1_flight")
+	df("super_flickies")
+
+folder = "Characters/SonicTailsRE/"
+	df("sa_effects")
+	df("partner_code")

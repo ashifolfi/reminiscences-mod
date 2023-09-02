@@ -31,7 +31,7 @@ This code has not been battle tested and as such cannot be considered stable. He
 
 ## FAQ
 
-### Q: What happened to Team Reminiscenes?
+### Q: What happened to Team Reminiscences?
 A: It has disbanded. The members either left SRB2 modding or had no desire to work on the mod.
 
 ### Q: Why did this take so long to come out?

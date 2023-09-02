@@ -3,5 +3,5 @@
 clean up:
 [x] taunts code
 [ ] soc
-[ ] file structure
+[x] file structure
 [ ] character code
