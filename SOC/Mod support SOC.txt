@@ -1,0 +1,17 @@
+Freeslot
+SPR2_SURF
+SPR2_FROZ
+SPR2_FKIK
+SPR2_SHIT
+
+Sprite2 SPR2_SURF
+Default = SPR2_WALK
+
+Sprite2 SPR2_FROZ
+Default = SPR2_DEAD
+
+Sprite2 SPR2_FKIK
+Default = SPR2_WALK
+
+Sprite2 SPR2_SHIT
+Default = SPR2_PAIN

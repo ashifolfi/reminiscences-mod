@@ -1,0 +1,1 @@
+These were replaced by a normal ball sprite once we added in the stretch effects.

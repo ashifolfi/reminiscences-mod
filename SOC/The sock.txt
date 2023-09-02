@@ -1,0 +1,304 @@
+# "PK3 compilation by Zippy_Zolton, thanks for letting me do this :)"
+
+FREESLOT
+MT_AMYRETHOK
+S_AMYRETHOK
+S_FAKESPARK
+SPR_ARTK
+
+Thing MT_AMYRETHOK
+Mapthingnum = -1
+Spawnstate = S_AMYRETHOK
+Spawnhealth = 1
+Radius = 32*FRACUNIT
+Height = 64*FRACUNIT
+Flags = MF_NOBLOCKMAP|MF_NOCLIP|MF_NOCLIPHEIGHT|MF_NOGRAVITY|MF_SCENERY
+
+Frame S_AMYRETHOK
+Spritename = ARTK
+Spriteframe = A|TR_TRANS60
+Duration = 8
+
+State S_SPRK1
+Duration = 0
+Next = 0
+Action A_SpawnObjectRelative
+Var2 = MT_SPARK
+
+object MT_SPARK
+SpawnState = S_FAKESPARK
+
+State S_FAKESPARK
+Spritenumber = 195
+Spritesubnumber = tr_trans40
+Duration = 1
+Action None
+Next = S_SPRK2
+
+# "Character Bios"
+
+#"Sonic the hedgehog REmix, by Dr.Pepper"
+#Special thanks goes to:
+#Nathan Speed, for the character selection picture and touching up some of the falling frames
+#Senku Niola, for fixing up the idle frames
+#Credit to Senku Niola for fixing said ports so they work correctly in match and change colors correctly, and even play differently
+#Ported to 2.2 by Kasumi, Lua by MotdSpork, Badnik, and TeriosSonic.
+
+
+CHARACTER
+SKINNAME = SonicRE
+DisplayName = Sonic
+TagTextColor = SKINCOLOR_CORNFLOWER
+TagOutlineColor = SKINCOLOR_BLUE
+PlayerText = ^4SonicRE^0 has abilities that let him burst into full speed very quickly!
+
+^4Ability:^0 Bounce Attack
+Press spin mid-air to do a Bounce Attack. You'll drop and bounce back up.
+
+^4Ability:^0 Homing Attack
+Double jump to uncurl and dash forwards. Use this near an enemy to do a Homing Attack instead.
+
+^4Ability:^0 Spinstack
+Unlike vanilla Sonic, SonicRE can use his spindash anywhere, and even stack it up for more speed!
+
+#
+
+#Miles "Tails" Prower: REmix, by Dr.Pepper
+#Character select image drawn by Thompson
+#Back running sprites made by Ground The Fox
+#Credit to Senku Niola for fixing said ports so they work correctly in match and change colors correctly, and even play differently
+#Ported to 2.2 by Kasumi-sonic and TeriosSonic. It's about time to bring him back, honestly..
+
+CHARACTER
+SKINNAME = TailsRE
+DisplayName = Miles
+TagTextColor = SKINCOLOR_ORANGE
+TagOutlineColor = SKINCOLOR_WHITE
+PlayerText = ^7TailsRE^0, unlike vanilla Tails, has more melee options and a faster vertical height.
+
+^7Ability:^0 Hold Flight
+Press and hold jump mid-air to fly upwards. Tails will tire out after performing this move, and fall like a rock.
+
+^7Ability:^0 Tailswipe
+Hold spin to swipe your tails, dealing damage to badniks.
+
+^7Tip:^0 Pressing spin while running will allow you to curl into a ball!
+#
+
+# "Combos for TailsRE, separated for ordering"
+
+Character
+SkinName = SonicRE&TailsRE
+PicName = SOTARE
+DisplayName = Sonic#& Miles
+TagTextColor = SKINCOLOR_BLUE
+TagOutlineColor = SKINCOLOR_YELLOW
+OppositeColor = SKINCOLOR_SKY
+PlayerText = ^4Sonic^0 & ^7Miles^0 team up to take on Doctor Eggman!
+
+^7Ability:^0 Flight Call
+Stand next to Miles and jump when the arrow appears. Miles will fly you upward until he gets tired, like normal Sonic and Tails do. However, Miles' flight is shorter, but faster.
+
+^4Note:^0 Miles can spindash when he's with Sonic.
+#
+
+Character
+SkinName = TailsRE&SonicRE
+PicName = TASORE
+DisplayName = Miles#& Sonic
+TagTextColor = SKINCOLOR_YELLOW
+TagOutlineColor = SKINCOLOR_BLUE
+OppositeColor = SKINCOLOR_SKY
+PlayerText = ^7Miles^0 & ^4Sonic^0 team up to take on Doctor Eggman!
+
+^7Note:^0 Miles can spindash when he's with Sonic.
+#
+
+# 
+# ^4Ability:^0 Homing Attack
+# Sonic will automatically do a Homing Attack on nearby enemies.
+
+Character
+SkinName = modernsonic&TailsRE
+PicName = MODTRE
+DisplayName = M.Sonic#& Miles
+TagTextColor = SKINCOLOR_BLUE
+TagOutlineColor = SKINCOLOR_YELLOW
+OppositeColor = SKINCOLOR_SKY
+PlayerText = ^4Modern Sonic^0 & ^7Miles^0 team up to take on Doctor Eggman!
+
+^7Ability:^0 Flight Call
+Stand next to Miles and jump when the arrow appears. Miles will fly you upward until he gets tired, like normal Sonic and Tails do. However, Miles' flight is shorter, but faster.
+
+^4Note:^0 Miles can spindash when he's with Modern Sonic.
+#
+
+#"Amy Rose, by .Luke"
+#Special Thanks goes to:
+#Chrispy, for improving Amy's shading and changing the 
+#way her arms move when she walks.
+#zck2020, for making an excellent character selection pic for Amy.
+#Motor Roach, for drawing the tipping frames, and some of the
+#bubble breath/falling sprites.
+#Credit to Senku Niola for fixing said ports so they work correctly in match and change colors correctly, and even play differently
+#Kasumi here for porting her to 2.2. We still didn't get Modern Amy to this date? Huh.
+#Extra thanks to TeriosSonic for Lua and extra help.
+
+CHARACTER
+SKINNAME = AmyRE
+DisplayName = Amy Rose
+TagTextColor = SKINCOLOR_PINK
+TagOutlineColor = SKINCOLOR_WHITE
+PlayerText = \8EAmyRE^0 comes packed of speed and height options.
+
+\8EAbility:^0 Hammer Rush
+Hold spin in place to rev up your feet, and blast away with full speed, destroying anything in your path.
+
+\8EAbility:^0 Charged Jump
+Hold jump mid-air to charge a Charged Jump! The more you hold, the higher the jump!
+
+\8EAbility:^0 Hammer Swing
+Press spin while moving to swing your hammer. Be careful with its cooldown!
+#
+
+#"Amy by Donnyku"
+#Ported to 2.2 by Kasumi-chan, Lua by TeriosSonic.
+#...she's still the best SSNSonic recolor.
+
+CHARACTER
+SKINNAME = SSNAmy
+DisplayName = SSNAmy
+TagTextColor = SKINCOLOR_RED
+TagOutlineColor = SKINCOLOR_WHITE
+PlayerText = ^5SSNAmy^0's packed with ^5pure speed^0. Trust me, I'm not joking.
+
+^5Ability:^0 Impact Dash
+Press spin either in the ground on in mid-air to do a dash forward. You'll be invulnerable for a second!
+
+^5Ability:^0 Impact Jump
+Press jump while in mid-air to dash upwards with the same effects as the Impact Dash.
+
+^5Tip:^0 If you dash on the ground and jump, you'll keep your momentum!
+#
+
+
+#"Shadow the Hedgehog, by Dr.Pepper"
+#Special Thanks goes to:
+#Chrispy, for improving the sprites. This WAD would never have been finished without his help.
+#Senku_niola, for fixing the spin trail soc.
+#Blade, for the character select pic.
+#No permission is needed to edit or use these sprites; just don't claim them as your own.
+#Credit to Senku Niola for fixing said ports so they work correctly in match and change colors correctly, and even play differently
+#Port to 2.2 by Kasumi, Lua by Badz and Terios.
+
+CHARACTER
+SKINNAME = ShadowRE
+DisplayName = Shadow
+TagTextColor = SKINCOLOR_BLACK
+TagOutlineColor = SKINCOLOR_RED
+OppositeColor = SKINCOLOR_GREEN
+PlayerText = ^6ShadowRE^0 uses the power of Chaos to fight enemies with style!
+
+^6Ability:^0 Chaos Float
+Hold jump while jumping to float around.
+
+^6Ability:^0 Chaos Spear
+Press Custom 1 to shoot homing Chaos Spears. This consumes a bit of energy.
+
+^6Ability:^0 Chaos Boost
+Press Custom 2 to unleash your full power until you run out of energy. You can also do a Chaos Blast if you press the button again mid-air, but this consumes all your power.
+#
+
+#"Shadow by Donnyku"
+#"Super Shadow by Super Mystic Sonic"
+#Life box sprites by Kiddytails
+#Waiting and running/walking frames by SonicFreak94
+#Ported to 2.2 by Kasumi-chan, Lua by TeriosSonic
+#OW THE EDGE
+
+CHARACTER
+SKINNAME = SSNShadow
+DisplayName = Shadow
+TagTextColor = SKINCOLOR_BLACK
+TagOutlineColor = SKINCOLOR_RED
+OppositeColor = SKINCOLOR_WHITE
+PlayerText = ^6SSNShadow^0 is very similar to SonicRE, but he has various changes.
+
+^6Ability:^0 Light-Dash
+Press the Custom 1 Button in front of a ring trail to dash toward it!
+
+^6Ability:^0 Double Thok
+You can dash twice with jump, faster as you speed up, however the second dash will uncurl you. You can also perform a homing dash that mantains your momentum if you hold.
+
+^6Tip:^0 You can skate on water.
+#
+
+#"Blaze the Cat, version 2, by Dr.Pepper"
+#Special Thanks goes to:
+#Chaos Zero 64, for his Espio WAD's custom spin trail and spin frames.
+#SSNTails for his SRB2 Sonic sprites.
+#SonicTheDalek for the Character selection pic, life moniter
+#icons, and fixing Blaze's spin trail soc.
+#zck2020 for Eggman Nega's Egg-mobile in the Sol Emerald WAD.
+#If you would like to edit this WAD, I don't care what you do to it,
+#but if you disfigure her for a cheap fan char/recolor, NOBODY will 
+#want it, trust me.
+#Version 18 Final
+#Port to 2.2 by Kasumi, ability and Lua by Golden Shine and Zolton.
+
+CHARACTER
+SKINNAME = ssnblaze
+DisplayName = Blaze
+TagTextColor = SKINCOLOR_LAVENDER
+TagOutlineColor = SKINCOLOR_CRIMSON
+OppositeColor = SKINCOLOR_YELLOW
+PlayerText = ^1SSNBlaze^0 can hover through most situations with speed!
+
+^1Ability:^0 Burst Hover
+Hold jump mid-air to perform a hover move. While using it, your attack radius will be bigger.
+
+^1Note:^0 Blaze's Hover and spindash build momentum very fast and can be slippery.
+#
+
+#"Mighty the Armadillo, by Dr.Pepper"
+#If you would like to edit these sprites for any purpose, you don't need permission;
+#just don't claim these sprites as your own.
+#Credit to Senku Niola for fixing said ports so they work correctly in match and change colors correctly, and even play differently
+#Ported to 2.2 by Kasumi, Lua by Emong, Tripel the Fox, Sz, and TeriosSonic.
+
+CHARACTER
+SKINNAME = MightyRE
+DisplayName = Mighty
+TagTextColor = SKINCOLOR_RED
+TagOutlineColor = SKINCOLOR_BLACK
+PlayerText = ^5MightyRE^0 has both strength and speed!
+
+^5Ability:^0 Stompdash
+Press jump mid-air to drop into the ground, slamming badniks and spikes. Hold spin to redirect your speed forwards into a Drop Dash!
+
+^5Ability:^0 Wallkick
+Jump near a wall, and hold jump to latch onto it. Release it to let go.
+
+^5Tip:^0 Rolling makes you invulnerable to projectiles from an enemy and to spikes for the first hit.
+#
+
+#There wasn't any text on the 2.1 version, so just gonna add something here.
+#"Sally, do the funny kiss!"
+#Either way, Kasumi here, and thanks to TeriosSonic we got some new controls.
+
+Character
+SkinName = SallyRE
+DisplayName = Sally#Acorn
+TagTextColor = SKINCOLOR_BROWN
+TagOutlineColor = SKINCOLOR_BLUE
+PlayerText = \8DSally Acorn^0 has various mobility options!
+
+\8DAbility:^0 Crouch
+Press the spin button while standing still to crouch.
+
+\8DAbility:^0 Slide
+Press spin while moving to slide. It can break walls and slide under gaps.
+
+\8DAbility:^0 Somersault
+During \8DCrouch^0 or \8DSlide^0 or while jumping, press jump to do a somersault.
+#

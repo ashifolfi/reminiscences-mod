@@ -1,0 +1,27 @@
+Lump GFZCRK
+Title = Crank_that_GFZ
+Authors = Apollyon
+Soundtestpage = 1
+Soundtestcond = 0
+BPM = 155
+
+Lump EARAMY
+Title = Follow_Me
+Authors = Dmitry's_Music,_Kay_Hanley_(Sonic_Heroes)
+Soundtestpage = 1
+Soundtestcond = 0
+BPM = 166
+
+Lump CHADOU
+Title = I_Am..._All_of_Me
+Authors = Crush_40_(Shadow_the_Hedgehog)
+Soundtestpage = 1
+Soundtestcond = 0
+BPM = 95
+
+Lump SALSUS
+Title = Fresh_Rock_Zone
+Authors = Crepa_Bitto
+Soundtestpage = 1
+Soundtestcond = 0
+BPM = 96
