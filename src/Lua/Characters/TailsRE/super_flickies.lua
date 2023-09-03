@@ -22,8 +22,8 @@ CHANGELOG:
 	- Fixed the birds not disappearing when going above the ceiling (thankfully i had a failsafe in there)
 	- Fixed problem where if Tails went super again before the birds disappeared, the birds might not spawn correctly.
 
-]]
-*/
+]]*/
+
 if CODEBASE < 220 or (CODEBASE == 220 and SUBVERSION < 1)
 error("SRB2 Version is not detected as v2.2.1! Please update your game to use this!", 0)
 end
