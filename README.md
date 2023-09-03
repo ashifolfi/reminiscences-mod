@@ -14,7 +14,7 @@ Due to SRB2's ability to load folders, testing the mod during development is as 
 ```
 
 ## Contribution
-The following rules are in place for code contributions:
+The following rules are loosely in place for code contributions:
 - refrain from using C-Style comments. Most external code editors do not support them.
 - `if` statements must be followed by `then`
 - `for` statements must be followed by `do`
