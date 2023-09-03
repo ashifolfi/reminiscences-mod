@@ -5,7 +5,7 @@ A mod for SRB2 that ports old character mods to the latest version with tons of 
 Due to SRB2's ability to load folders, testing the mod during development is as easy as launching SRB2 using the following parameters on the command line:
 
 ```
--folder -file <path-to-reminskins.pk3> -folder <path-to-src-folder>
+-file <path-to-reminskins.pk3> -folder <path-to-src-folder>
 ```
 
 ## Versioning
