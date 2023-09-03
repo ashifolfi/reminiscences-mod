@@ -1,6 +1,11 @@
 # Reminiscences Mod
 A mod for SRB2 that ports old character mods to the latest version with tons of tweaks and new content.
 
+## NOTICE
+**This mod is currently in an unfinished state with no stable releases!**
+
+This code has not been battle tested and as such cannot be considered stable. Hell some things just straight up aren't even finished. Please keep this in mind.
+
 ## Development
 Due to SRB2's ability to load folders, testing the mod during development is as easy as launching SRB2 using the following parameters on the command line:
 
@@ -8,26 +13,15 @@ Due to SRB2's ability to load folders, testing the mod during development is as 
 -file <path-to-reminskins.pk3> -folder <path-to-src-folder>
 ```
 
-## Versioning
-This mod uses the Major.Minor.Patch version structure.
+## Contribution
+The following rules are in place for code contributions:
+- refrain from using C-Style comments. Most external code editors do not support them.
+- `if` statements must be followed by `then`
+- `for` statements must be followed by `do`
+- indentation must be consistent (don't mix spaces and tabs)
+- if code does not clearly show it's purpose, provide a comment on what it does.
 
-----
-
-**Major**: New characters, Ability changes, feature additions, etc.
-
-**Minor**: Ability adjustments, Balance changes, etc.
-
-**Patch**: Bug fixes, non player facing changes, etc.
-
-----
-
-Hopefully the above info explains how this generally works.
-
-
-## NOTICE
-**This mod is currently in an unfinished state with no stable releases!**
-
-This code has not been battle tested and as such cannot be considered stable. Hell some things just straight up aren't even finished. Please keep this in mind.
+Although these may seem strict they are in place to help keep the code as readable and compatible as possible. This in turn will help in not driving away potential contributors due to low code quality.
 
 ## FAQ
 
@@ -37,5 +31,5 @@ A: It has disbanded. The members either left SRB2 modding or had no desire to wo
 ### Q: Why did this take so long to come out?
 A: A combination of a lack of motivation, a lack of time, and the loss of a ton of development builds. I had to really dig to gather all of this together.
 
-### Q: What about the MB?
-A: MB releases will happen every now and then when enough changes/fixes/adjustments are gathered to justify a release.
+### Q: What about the MB page?
+A: I am not entirely sure what I will do about updates to the actual resource on the MB. However I will update the main page to include links to the github.
