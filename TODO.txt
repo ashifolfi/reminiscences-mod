@@ -1,7 +1,0 @@
-[ ] Create menu to change between normal and alt movesets
-
-clean up:
-[x] taunts code
-[ ] soc
-[x] file structure
-[ ] character code
