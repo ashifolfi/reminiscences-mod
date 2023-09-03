@@ -248,9 +248,9 @@ end
 	if player.powers[pw_super] and player.STFMod.birdsSummoned
 		-- [ Bird Home ] --
 		if (player.mo.eflags & MFE_VERTICALFLIP) or (player.mo.flags2 & MF2_OBJECTFLIP)
-			P_TeleportMove(player.STFMod.birdhome, player.mo.x+player.mo.momx, player.mo.y+player.mo.momy, player.mo.momz + (player.mo.z-(player.mo.height/2)-25*FRACUNIT))
+			P_SetOrigin(player.STFMod.birdhome, player.mo.x+player.mo.momx, player.mo.y+player.mo.momy, player.mo.momz + (player.mo.z-(player.mo.height/2)-25*FRACUNIT))
 		else
-			P_TeleportMove(player.STFMod.birdhome, player.mo.x+player.mo.momx, player.mo.y+player.mo.momy, player.mo.momz + (player.mo.z+(player.mo.height/2)+20*FRACUNIT))
+			P_SetOrigin(player.STFMod.birdhome, player.mo.x+player.mo.momx, player.mo.y+player.mo.momy, player.mo.momz + (player.mo.z+(player.mo.height/2)+20*FRACUNIT))
 		end
 		
 		-- [ Bobbing ] -- Todo: Duplicate the GayBirdH thing 3 times to make different ones for each individual birb.
