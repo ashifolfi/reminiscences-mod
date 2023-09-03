@@ -22,7 +22,7 @@ end
 addHook("ThinkFrame", function(player)
 	for player in players.iterate
 		local button = CV_FindVar("remin_taunt_button").value
-		if not player.mo return end -- The player should be valid.
+		if not player.mo then return end -- The player should be valid.
 		if not IsReminSkin(player) then return end
 		
 		if not (player.cmd.buttons & button) then

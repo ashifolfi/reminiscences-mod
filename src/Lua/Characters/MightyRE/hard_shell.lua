@@ -1,14 +1,14 @@
 -- Original spike protection code from SSNMighty
 addHook("ShouldDamage", function(mobj, spike)
-    if (mobj.player and mobj.skin == "mightyre")
-		if (spike == nil) return end
-		if (spike.valid and spike.type == MT_SPIKE)
-			if not (mobj.player.stompdash == nil)
+    if (mobj.player and mobj.skin == "mightyre") then
+		if (spike == nil) then return end
+		if (spike.valid and spike.type == MT_SPIKE) then
+			if not (mobj.player.stompdash == nil) then
 				spike.health = 0
 				S_StartSound(mobj, spike.info.deathsound)
 				P_KillMobj(spike, mobj, mobj)
 				return false
-			elseif (mobj.player.stompdash == nil) and (mobj.player.bounce == false)
+			elseif (mobj.player.stompdash == nil) and (mobj.player.bounce == false) then
 				mobj.player.pflags = $1 & ~PF_SPINNING
 				mobj.momz = 10*FRACUNIT
 				mobj.momx = FixedMul(-8*FRACUNIT, cos(mobj.angle))

@@ -40,6 +40,13 @@ folder = "Characters/"
 	df("ssnamy")
 	df("sally")
 
+-- files in this folder contain code for more than one character
+folder = "Characters/shared/"
+	df("floating")
+	df("skating")
+	df("sa_effects")
+	df("partner_code")
+
 folder = "Characters/AmyRE/"
 	df("hammer_rush")
 	df("charge_jump")
@@ -51,28 +58,19 @@ folder = "Characters/MightyRE/"
 	df("stomp_dash")
 
 folder = "Characters/ShadowRE/"
-	df("skating")
-	df("super_float")
 	df("hud")
 	df("chaos_energy")
 	df("chaos_spear")
 
 folder = "Characters/SSNShadow/"
 	df("light_dash")
-	df("skating")
-	df("floating")
 	df("double_thok")
 
 folder = "Characters/SonicRE/"
 	df("bounce")
 	df("spin_drift")
-	df("super_float")
 
 folder = "Characters/TailsRE/"
 	df("tail_swipe")
 	df("sa1_flight")
 	df("super_flickies")
-
-folder = "Characters/SonicTailsRE/"
-	df("sa_effects")
-	df("partner_code")

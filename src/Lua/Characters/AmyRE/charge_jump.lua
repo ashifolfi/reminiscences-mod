@@ -14,7 +14,7 @@ addHook("AbilitySpecial", function(player)
     if player.mo and player.mo.skin == "amyre" -- charname here
 	and player.pflags & PF_JUMPED
 	and not(player.pflags & PF_THOKKED)
-	and not(player.mo.state == S_AMYRE_JUMPCHARGE)
+	and not(player.mo.state == S_AMYRE_JUMPCHARGE) then
 		player.amyrestore = player.speed
 		player.mo.state = S_AMYRE_JUMPCHARGE
 		S_StartSound(player.mo, sfx_spndsh, player)
@@ -23,13 +23,13 @@ addHook("AbilitySpecial", function(player)
 end)
 -- literally everything else from the script in one big hook
 addHook("ThinkFrame", function(player)
-	for player in players.iterate
-		if not player.mo return end
-		if player.mo.skin == "amyre"
-			if player.amyrecharge == nil
+	for player in players.iterate do
+		if not player.mo then return end
+		if player.mo.skin == "amyre" then
+			if player.amyrecharge == nil then
 				player.amyrecharge = 0
 			end
-			if player.powers[pw_super]
+			if player.powers[pw_super] then
 				player.amyrejumpphase1 = 15*FRACUNIT
 				player.amyrejumpphase2 = 20*FRACUNIT
 				player.amyrejumpphase3 = 25*FRACUNIT
@@ -38,21 +38,21 @@ addHook("ThinkFrame", function(player)
 				player.amyrejumpphase2 = 15*FRACUNIT
 				player.amyrejumpphase3 = 20*FRACUNIT
 			end
-			if player.mo.state == S_AMYRE_JUMPCHARGE
+			if player.mo.state == S_AMYRE_JUMPCHARGE then
 				P_SetObjectMomZ(player.mo, 0, false)
-				//P_InstaThrust(player.mo, player.mo.angle, 0) -- this line is the old stopping method, uncomment line for old system
+				-- P_InstaThrust(player.mo, player.mo.angle, 0) -- this line is the old stopping method, uncomment line for old system
 				player.pflags = $ | PF_STASIS
 				player.mo.momx = FixedMul($, FRACUNIT*88/100)
 				player.mo.momy = FixedMul($, FRACUNIT*88/100) -- these three lines are the new stopping method, comment out for old system
 				player.amyrecharge = $ + 1
-				if player.amyrestore > 45*FRACUNIT
+				if player.amyrestore > 45*FRACUNIT then
 					player.peelout = 1
 				end
-				if not(player.cmd.buttons & BT_JUMP)
-					if player.amyrecharge > 18
+				if not(player.cmd.buttons & BT_JUMP) then
+					if player.amyrecharge > 18 then
 						P_SetObjectMomZ(player.mo, player.amyrejumpphase2, false)
 						P_InstaThrust(player.mo, player.mo.angle, player.amyrestore/2)
-						if player.amyrestore > 90*FRACUNIT
+						if player.amyrestore > 90*FRACUNIT then
 							player.mo.peelout = 1
 						end
 						player.mo.state = S_PLAY_SPRING
@@ -61,13 +61,13 @@ addHook("ThinkFrame", function(player)
 						player.amyrestore = 0
 						S_StopSoundByID(player.mo, sfx_cdfm40)
 						S_StartSound(player.mo, sfx_amydbl, player)
-						if player.powers[pw_super]
+						if player.powers[pw_super] then
 							S_StartSound(player.mo, sfx_zoom, player)
 						end
-					elseif player.amyrecharge < 18
+					elseif player.amyrecharge < 18 then
 						P_SetObjectMomZ(player.mo, player.amyrejumpphase1, false)
 						P_InstaThrust(player.mo, player.mo.angle, player.amyrestore)
-						if player.amyrestore > 45*FRACUNIT
+						if player.amyrestore > 45*FRACUNIT then
 							player.mo.peelout = 1
 						end
 						player.mo.state = S_PLAY_SPRING
@@ -75,18 +75,18 @@ addHook("ThinkFrame", function(player)
 						player.amyrecharge = 0
 						player.amyrestore = 0
 						S_StopSoundByID(player.mo, sfx_spndsh)
-						if player.powers[pw_super]
+						if player.powers[pw_super] then
 							S_StartSound(player.mo, sfx_amydbl, player)
 						else
 							S_StartSound(player.mo, sfx_ngjump, player)
 						end
 					end
 				end
-				if player.amyrecharge == 18
+				if player.amyrecharge == 18 then
 					P_SpawnThokMobj(player)
 					S_StartSound(player.mo, sfx_cdfm40, player)
 				end
-				if player.amyrecharge == 35
+				if player.amyrecharge == 35 then
 					P_SpawnThokMobj(player)
 					P_SetObjectMomZ(player.mo, player.amyrejumpphase3, false)
 					player.mo.state = S_PLAY_SPRING
@@ -95,7 +95,7 @@ addHook("ThinkFrame", function(player)
 					player.amyrestore = 0
 					S_StartSound(player.mo, sfx_amydbl, player)
 					S_StartSound(player.mo, sfx_zoom, player)
-					if player.powers[pw_super]
+					if player.powers[pw_super] then
 						P_NukeEnemies(player.mo, player.mo, 768*FRACUNIT)
 						S_StartSound(player.mo, sfx_kc4d, player)
 					end

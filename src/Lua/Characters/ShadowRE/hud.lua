@@ -1,3 +1,9 @@
+--[[
+	ShadowRE HUD
+
+	Created by Ashi
+]]
+
 -- TODO: is this used?
 local function getcolorflag(e1,e2,e3)
 	if e1 >= e2 then

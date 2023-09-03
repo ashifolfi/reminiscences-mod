@@ -26,36 +26,36 @@ states[S_PLAY_SPEEL3] = {SPR_PLAY, SPR2_DASH3, 1, nil, 0, 0, S_PLAY_SPEEL4}
 states[S_PLAY_SPEEL4] = {SPR_PLAY, SPR2_DASH4, 1, nil, 0, 0, S_PLAY_SPEEL1}
 
 
-addHook("ThinkFrame", do
-	for player in players.iterate
-		if not player.mo return end
-		if player.exiting return end
-			if player.mo and player.mo.skin == "amyre"
-			//CONS_Printf(player, player.mo.peelouttimer)
+addHook("ThinkFrame", function()
+	for player in players.iterate do
+		if not player.mo then return end
+		if player.exiting then return end
+			if player.mo and player.mo.skin == "amyre" then
+			  --CONS_Printf(player, player.mo.peelouttimer)
 				player.actionspd = player.normalspeed
-				if player.mo.state == S_PLAY_STND
+				if player.mo.state == S_PLAY_STND then
 					player.normalspeed = 36*FRACUNIT
 				end
-				if player.mo.peelouttimer == nil
+				if player.mo.peelouttimer == nil then
 					player.mo.peelouttimer = 0
 				end
-				if player.mo.peelout == nil
+				if player.mo.peelout == nil then
 					player.mo.peelout = 0
 				end
-				if player.mo.peeloutrun == nil
+				if player.mo.peeloutrun == nil then
 					player.mo.peeloutrun = 0
 				end
-				if player.mo.peelsound == nil
+				if player.mo.peelsound == nil then
 					player.mo.peelsound = 0
 				end
-				if player.mo.peelsound2 == nil
+				if player.mo.peelsound2 == nil then
 					player.mo.peelsound2 = 0
 				end
-				if player.pflags & PF_SPINNING
+				if player.pflags & PF_SPINNING then
 					player.mo.peelouttimer = 0
 				end
 				if (P_PlayerInPain(player))
-				or (player.playerstate == PST_DEAD)
+				or (player.playerstate == PST_DEAD) then
 					player.normalspeed = 36*FRACUNIT
 					player.mo.peelouttimer = 0
 					player.mo.peelout = 0
@@ -67,23 +67,22 @@ addHook("ThinkFrame", do
 				and player.speed == 0
 				and not (player.pflags & PF_SPINNING)
 				and player.cmd.buttons & BT_USE
-			    and not (player.playerstate == PST_DEAD)
-					if player.mo.peelsound == 0
+		    and not (player.playerstate == PST_DEAD) then
+					if player.mo.peelsound == 0 then
 						S_StartSound(player.mo, sfx_cdfm11)
 						player.mo.peelsound = 1
-						
 					end
-					if player.mo.peelouttimer < 60
+					if player.mo.peelouttimer < 60 then
 						player.mo.peelouttimer = $1 + 1
 					end
 					player.normalspeed = 0
 					player.pflags = $1|PF_STASIS
-					if player.drawangle ~= player.mo.angle
+					if player.drawangle ~= player.mo.angle then
 						local diff = 0
 						local factor = 0
 						diff = player.mo.angle - player.drawangle
 						factor = 8
-						if diff > ANGLE_180
+						if diff > ANGLE_180 then
 							diff = InvAngle(InvAngle(diff)/(factor or 1))
 						else
 							diff = $ / (factor or 1)
@@ -116,9 +115,9 @@ addHook("ThinkFrame", do
 						end
 					end
 				end
-			if not (player.cmd.buttons & BT_USE) 
+			if not (player.cmd.buttons & BT_USE) then
 				if ((player.mo.peelouttimer >= 1) and (player.mo.peelouttimer <= 35) and not (player.powers[pw_super]))
-				or ((player.mo.peelouttimer >= 1) and (player.mo.peelouttimer <= 14) and (player.powers[pw_super]))
+				or ((player.mo.peelouttimer >= 1) and (player.mo.peelouttimer <= 14) and (player.powers[pw_super])) then
 					player.normalspeed = 36*FRACUNIT
 					player.mo.state = 14
 					player.mo.peelouttimer = 0
@@ -126,39 +125,39 @@ addHook("ThinkFrame", do
 				end
 			end
 			
-			if player.powers[pw_super] == 0
+			if player.powers[pw_super] == 0 then
 				if player.mo.peelouttimer >= 1
-				and player.mo.peelouttimer <= 30
+				and player.mo.peelouttimer <= 30 then
 					if not (player.mo.state >= S_PLAY_PWALK1)
-					and (player.mo.state <= S_PLAY_PWALK16)
+					and (player.mo.state <= S_PLAY_PWALK16) then
 						player.mo.state = S_PLAY_PWALK1
 					end
 				end
-				if player.mo.peelouttimer >= 31
+				if player.mo.peelouttimer >= 31 then
 					if not ((player.mo.state >= S_PLAY_PEEL1) and (player.mo.state <= S_PLAY_PEEL4))
-					or ((player.mo.state >= S_PLAY_PWALK1) and (player.mo.state <= S_PLAY_PWALK16))
+					or ((player.mo.state >= S_PLAY_PWALK1) and (player.mo.state <= S_PLAY_PWALK16)) then
 						player.mo.state = S_PLAY_PEEL1
 					end
 				end
 			else
 				if player.mo.peelouttimer >= 1
-				and player.mo.peelouttimer <= 14
+				and player.mo.peelouttimer <= 14 then
 					if not (player.mo.state >= S_PLAY_PWALK8)
-					and (player.mo.state <= S_PLAY_PWALK16)
+					and (player.mo.state <= S_PLAY_PWALK16) then
 						player.mo.state = S_PLAY_PWALK8
 					end
 				end
-				if player.mo.peelouttimer >= 15
+				if player.mo.peelouttimer >= 15 then
 					if not (player.mo.state >= S_PLAY_SPEEL1)
-					and (player.mo.state <= S_PLAY_SPEEL4)
+					and (player.mo.state <= S_PLAY_SPEEL4) then
 						player.mo.state = S_PLAY_SPEEL1
 					end
 				end
 			end
-			if not (player.cmd.buttons & BT_USE)
+			if not (player.cmd.buttons & BT_USE) then
 				if ((player.mo.peelouttimer >= 31) and not (player.powers[pw_super]))
-				or ((player.mo.peelouttimer >= 15) and (player.powers[pw_super]))
-					if player.mo.peelsound == 1
+				or ((player.mo.peelouttimer >= 15) and (player.powers[pw_super])) then
+					if player.mo.peelsound == 1 then
 						player.mo.state = S_PLAY_DASH
 						S_StartSound(player.mo, sfx_cdfm01)
 						player.mo.peelsound = 0
@@ -171,36 +170,36 @@ addHook("ThinkFrame", do
 				
 			end
 			if player.speed > 45*FRACUNIT
-			and player.mo.peelout == 1
+			and player.mo.peelout == 1 then
 				player.mo.peeloutrun = 1
 				player.normalspeed = 60*FRACUNIT
-				if player.mo.state == S_PLAY_RUN
+				if player.mo.state == S_PLAY_RUN then
 					player.mo.state = S_PLAY_DASH
 				end
 			end
 			if player.speed <= 45*FRACUNIT
-			and player.mo.peeloutrun == 1
+			and player.mo.peeloutrun == 1 then
 				player.mo.peelout = 0
 				player.mo.peeloutrun = 0
 				player.normalspeed = 36*FRACUNIT
-				if player.mo.state == S_PLAY_DASH
+				if player.mo.state == S_PLAY_DASH then
 					player.mo.state = S_PLAY_RUN
 				end
 			end
-			if player.mo.peelout == 1
+			if player.mo.peelout == 1 then
 				local ghost = P_SpawnGhostMobj(player.mo)
 				ghost.fuse = 4
 				player.charflags = $1|SF_RUNONWATER
 			else
 				player.charflags = $1 & ~SF_RUNONWATER
 			end
-			if player.pflags & PF_JUMPED
+			if player.pflags & PF_JUMPED then
 				if ((player.mo.state >= S_PLAY_PWALK1) and (player.mo.state <= S_PLAY_PWALK16))
 				or ((player.mo.state >= S_PLAY_PEEL1) and (player.mo.state <= S_PLAY_PEEL4))
-				or ((player.mo.state >= S_PLAY_SPEEL1) and (player.mo.state <= S_PLAY_SPEEL2))
+				or ((player.mo.state >= S_PLAY_SPEEL1) and (player.mo.state <= S_PLAY_SPEEL2)) then
 					player.mo.state = S_PLAY_ROLL
 				end
-				if player.normalspeed == 0*FRACUNIT
+				if player.normalspeed == 0*FRACUNIT then
 					player.normalspeed = 36*FRACUNIT
 				end
 				player.mo.peelouttimer = 0
@@ -214,13 +213,13 @@ end)
 -- EnemyHammering function [damaging enemies while charging peelout/dashing]
 local function EnemyHammering(enemy, mobj)
 	local player = mobj.player
-	if not (player.mo.skin == "amyre")
+	if not (player.mo.skin == "amyre") then
 		return false
 	end
 	if (enemy.flags & (MF_ENEMY|MF_BOSS))
 	and (player.mo.peelout == 1 or player.mo.peelouttimer >= 31)
 	and not (player.powers[pw_super])
-	and not (player.powers[pw_invulnerability])
+	and not (player.powers[pw_invulnerability]) then
 		P_DamageMobj(enemy, mobj, mobj)
 		return true
 	end

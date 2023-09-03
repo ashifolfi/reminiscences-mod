@@ -1,5 +1,4 @@
-addHook("PlayerThink", function(player, sector) // spec pet is an epic person
-	
+addHook("PlayerThink", function(player, sector) -- spec pet is an epic person
 	player.weapon = MT_SPEAR
 	
 	player.target = P_LookForEnemies(player, false, true)

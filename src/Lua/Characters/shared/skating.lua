@@ -3,7 +3,19 @@
 -- This version uses 4 running sprites like the original, but it has a better
 -- looking animation.
 -- You also need the DSSKATES lump which is the skating sound.
-freeslot("sfx_skates", "S_SHADOWRE_SKATE1", "S_SHADOWRE_SKATE2", "S_SHADOWRE_SKATE3", "S_SHADOWRE_SKATE4", "S_SHADOWRE_SKATE5", "S_SHADOWRE_SKATE6", "SPR2_SKT1", "SPR2_SKT2", "SPR2_SKT3", "SPR2_SKT4")
+freeslot(
+	"sfx_skates",
+	"S_SHADOWRE_SKATE1",
+	"S_SHADOWRE_SKATE2",
+	"S_SHADOWRE_SKATE3",
+	"S_SHADOWRE_SKATE4",
+	"S_SHADOWRE_SKATE5",
+	"S_SHADOWRE_SKATE6",
+	"SPR2_SKT1",
+	"SPR2_SKT2",
+	"SPR2_SKT3",
+	"SPR2_SKT4"
+)
 
 sfxinfo[sfx_skates] = {
 	singular = true,
@@ -18,8 +30,8 @@ states[S_SHADOWRE_SKATE5] = {SPR_PLAY, SPR2_SKT4, 12, nil, nil, nil, S_SHADOWRE_
 states[S_SHADOWRE_SKATE6] = {SPR_PLAY, SPR2_SKT3, 3, nil, nil, nil, S_SHADOWRE_SKATE1}
 
 addHook("ThinkFrame", function()
-	for player in players.iterate
-		if not (player.mo and player.mo.skin == "shadowre") then return end
+	for player in players.iterate do
+		if not (player.mo and (player.mo.skin == "shadowre" or player.mo.skin == "ssnshadow")) then return end
 		
 		if (player.mo.state == S_SHADOWRE_SKATE1 or player.mo.state == S_SHADOWRE_SKATE4)
 		and (player.skatesound == nil) then -- ...and the skate sound hasn't played...
