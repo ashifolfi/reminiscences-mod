@@ -39,7 +39,8 @@ end)
 
 addHook("PlayerThink", function(player)
 	if player.exiting then return end
-    if player.mo and player.mo.skin == "amyre" then -- charname here
+
+  	if player.mo and player.mo.skin == "amyre" then -- charname here
 		-- State swap for hammer spin
 		if P_IsObjectOnGround(player.mo) -- If you're on the ground...
 		and not (player.mo.state == S_AMYRE_HAMMERSPIN) -- ...and you're not spinning...
@@ -49,8 +50,9 @@ addHook("PlayerThink", function(player)
 			player.mo.state = S_AMYRE_HAMMERSPIN -- ...you'll enter spin state!
 			S_StartSound(player.mo, sfx_s3k42, player)
 		end
+
 		if(player.mo.state == S_AMYRE_HAMMERSPIN)
-		or(player.mo.peelout == 1 or player.mo.peelouttimer >= 31) then
+		or(player.mo.peelout and (player.mo.peelout == 1 or player.mo.peelouttimer >= 31)) then
 			player.charflags = $|SF_CANBUSTWALLS
 		else
 			player.charflags = $&~SF_CANBUSTWALLS
@@ -81,10 +83,11 @@ addHook("MobjCollide", HammerSpinKill)
 
 -- Spike breaking hook
 addHook("MobjCollide", function(thing, tmthing)
-  if (tmthing.skin ~= "amyre" or not tmthing.player) then return end -- return end if you're not that skin or you aren't a skin
-  if thing.z + thing.height < tmthing.z + tmthing.momz or thing.z > tmthing.z + tmthing.momz + tmthing.height then return nil end -- return nil end if that's true, i forgot what this checks
-  local p = tmthing.player -- localing p as player
-  if(p.mo.state == S_AMYRE_HAMMERSPIN) then -- If you're spinning, you will have the following effects:
-    P_KillMobj(thing, tmthing, tmthing, nil, nil) -- You'll "kill" the specified object.
-  end
+	if (tmthing.skin ~= "amyre" or not tmthing.player) then return end -- return end if you're not that skin or you aren't a skin
+	if thing.z + thing.height < tmthing.z + tmthing.momz or thing.z > tmthing.z + tmthing.momz + tmthing.height then return nil end -- return nil end if that's true, i forgot what this checks
+	local p = tmthing.player -- localing p as player
+
+	if(p.mo.state == S_AMYRE_HAMMERSPIN) then -- If you're spinning, you will have the following effects:
+		P_KillMobj(thing, tmthing, tmthing, nil, nil) -- You'll "kill" the specified object.
+	end
 end, MT_SPIKE) -- The specified object is MT_SPIKE in this case.
